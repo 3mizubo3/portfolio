@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<!--common-->
+		<meta charset="UTF-8">
+		<meta name="Description" content="ミズホのポートフォリオサイト。Portfolio by Mizuho who aims to be a interactive engineer">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<title>Mizuho PORTFOLIO SITE</title>
+
+	<!--css	-->
+		<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Baloo|Fredoka+One" rel="stylesheet">
+		<link rel="stylesheet" href="../common/css/reset.css">
+		<link rel="stylesheet" href="../common/css/desktop.css">
+		<link href="https://fonts.googleapis.com/css?family=Monoton|Titan+One" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,700" rel="stylesheet">
+		<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../common/css/modal.css">
+
+	<!---JS--->
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+			<!--three.js-->
+			<script type="text/javascript" src="../common/js/three.min.js"></script>
+			<script type="text/javascript" src="../common/js/Projector.js"></script>
+			<script type="text/javascript" src="../common/js/CanvasRenderer.js"></script>
+			<script type="text/javascript" src="../common/js/modernizr-custom.min.js"></script>
+			<script type="text/javascript" src="../common/js/OrbitControls.js"></script>
+	<script type="text/javascript" src="../common/js/top.js" charset="utf-8"></script>
+		<!-------->
+</head>
+
+<body class="works_page fadein" style="overflow:scroll;">
+
+	<!--モーダル中身部分（クリックしなければ非表示）-->
+	<div id="modal-container"><!--クリックでfourクラスが追加されてモーダルが開く--><!--クリックでoutクラスが追加されてモーダルが閉じる-->
+			<div class="modal-background">
+					<div class="modal">
+						<svg class="modal-svg" fill="#b0f6fc" x="0px" y="0px" width="225px" height="225px">
+							<path d="M 148.145 9.644 c 0 0 65.5773 8.5485 67.2213 83.7354 c 2.74539 18.4101 4.36441 49.3938 -13.6563 78.4258 C 174.266 212.517 158.563 225.407 83.741 213.729 C 44.91 202.051 7.75242 171.137 5.25478 126.138 C 5.99012 71.5483 23.3743 44.7437 41.0567 31.7967 C 61.8927 17.5902 78.372 -3.303 148.145 9.644 Z">
+							<animate repeatCount="indefinite" dur="2.5s" attributeName="d" attributeType="XML" values="
+							M148.145,9.644c0,0,67.558,14.52,68.826,85.875c5.361,17.995,5.048,44.192-12.947,73.24c-27.153,36.303-45.461,60.927-120.283,49.25  C44.91,206.33,9.555,170.965,4.185,126.138C5.766,75.629,23.439,49.11,41.122,36.163C61.958,21.957,78.372-3.303,148.145,9.644z;
+							M148.145,9.644c0,0,63.855,3.356,65.826,81.875c0.471,18.771,3.77,53.917-14.273,82.935C172,219,158.563,221.686,83.741,210.008  C44.91,198.33,6.185,171.286,6.185,126.138C6.185,68,23.318,40.947,41,28C61.836,13.793,78.372-3.303,148.145,9.644z;
+							M152.5,10c0,0,45.5,3.5,56,82.5c5.509,35.141,10.197,66-1,84.5c-25,35.5-40,56.5-128,32c-66-17.5-72.315-37-72.315-83.861
+								C7.185,107.951,0,43.5,41.5,26.5C66,15,83.5,0.5,152.5,10z;
+							M148.145,14.644c0,0,64.467,7.837,66.438,86.356c0.471,18.771,3.55,40.683-14.884,69.454C175,209,163,213.012,83.741,210.008
+							c-43.003-1.63-79.557-46.722-79.557-91.87C4.185,57.333,20.318,41.947,38,29C61.91,12.698,75.297,1.127,148.145,14.644z;
+							M148.145,9.644c0,0,67.558,14.52,68.826,85.875c5.361,17.995,5.048,44.192-12.947,73.24c-27.153,36.303-45.461,60.927-120.283,49.25  C44.91,206.33,9.555,170.965,4.185,126.138C5.766,75.629,23.439,49.11,41.122,36.163C61.958,21.957,78.372-3.303,148.145,9.644z">
+							</animate>
+							</path>
+						</svg>
+						<div class="aboutme">
+						<h2>About Me</h2>
+						<p>I am Mizuho.<br>Now I am studying <br>processing and three.js.<br>this site is made using them.</p>
+						</div>
+					<!--</svg>-->
+					</div>
+			</div>
+	</div>
+
+<!--モーダル以外のメイン部分-->
+<div class = "mainmain">
+	<header>
+	  		<div id="title-works">
+	  			<h1>DEMO</h1>
+	  		</div>
+	</header>
+		<!-- #menu-->
+		<nav class="menu">
+		  <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
+		  <label class="menu-open-button" for="menu-open">
+		    <span class="hamburger hamburger-1"></span>
+		    <span class="hamburger hamburger-2"></span>
+		    <span class="hamburger hamburger-3"></span>
+		  </label>
+			<a href="../index.html" class="menu-item fadelink"> <i class="fas fa-home"><span class="s-balloon">TOP</span></i></a>
+			<div id="open" class="menu-item button"> <i class="fas fa-user"><span class="s-balloon">ABOUT</span></i></div>
+			<a href="../play/play.html" class="menu-item fadelink"> <i class="fas fa-play"><span class="s-balloon">PLAY</span></i></a>
+			<a href="#" class="menu-item"> <i class="fas fa-pencil-alt"><span class="s-balloon">WORKS</span></i></a>
+		</nav>
+		<!-- #title-->
+
+		<div class="caroussel">
+
+			<figure class="snip1516">
+				<video id="videoone" loop="true" autoplay muted src="video/video1.mp4" type="video/mp4"></video>
+				<figcaption>
+					<h3>Rotate <span>RotateRotateRotate</span></h3>
+				</figcaption>
+				<a href="works/works1/index.html"></a>
+			</figure>
+		<figure class="snip1516 fuwat">
+			<video id="videotwo" loop="true" autoplay muted src="video/works2.mov" type="video/mp4"></video>
+			<figcaption>
+				<h3>Random <span>RandomRandom</span></h3>
+			</figcaption>
+			<a href="works/works2/index.html"></a>
+		</figure>
+		<figure class="snip1516 fuwat">
+			<video id="videotwo" loop="true" autoplay muted src="video/works3.mov" type="video/mp4"></video>
+			<figcaption>
+				<h3>Random <span>RandomRandom</span></h3>
+			</figcaption>
+			<a href="works/works3/index.html"></a>
+		</figure>
+		<figure class="snip1516 fuwat">
+			<video id="videotwo" loop="true" autoplay muted src="video/video2.mp4" type="video/mp4"></video>
+			<figcaption>
+				<h3>Random <span>RandomRandom</span></h3>
+			</figcaption>
+			<a href="works/works4/index.html"></a>
+		</figure>
+		<figure class="snip1516 fuwat">
+			<video id="videotwo" loop="true" autoplay muted src="video/video2.mp4" type="video/mp4"></video>
+			<figcaption>
+				<h3>Random <span>RandomRandom</span></h3>
+			</figcaption>
+			<a href="works/works5/index.html"></a>
+		</figure>
+		<figure class="snip1516 fuwat">
+			<video id="videotwo" loop="true" autoplay muted src="video/video2.mp4" type="video/mp4"></video>
+			<figcaption>
+				<h3>Random <span>RandomRandom</span></h3>
+			</figcaption>
+			<a href="works/works6/index.html"></a>
+		</figure>
+	</div>
+
+	<!-- #share-->
+	<div id="prf-container-works" class="prf-container">
+		<a target="_blank" href="http://" class="GitHub"><i class="fab fa-github"></i></a>
+		<a target="_blank" href="http://" class="Twitter"><i class="fab fa-twitter"></i></a>
+		<a target="_blank" href="http://" class="CodePen"><i class="fab fa-codepen"></i></a>
+		<a target="_blank" href="http://" class="Tumblr"><i class="fab fa-tumblr"></i></a>
+	</div>
+
+</div>
+<!-- //#main -->
+<!--モーダル以外のメイン部分終わり-->
+
+<!-- filters / ハンバーガーメニューのsvgアニメーション設定-->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="shadowed-goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+          <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+          <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+          <feComposite in2="shadow" in="goo" result="goo" />
+          <feComposite in2="goo" in="SourceGraphic" result="mix" />
+      </filter>
+      <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feComposite in2="goo" in="SourceGraphic" result="mix" />
+      </filter>
+    </defs>
+</svg>
+
+
+<!-- modal -->
+	<script src="js/top_canvasbk1.js"></script>
+	<script type="text/javascript" src="../common/js/modal.js"></script>		<!--top.js-->
+</body>
+</html>

@@ -1,0 +1,163 @@
+div#sound_modal-container {
+ position:absolute;
+ top:0;
+ left:0;
+ right:0;
+ bottom:0;
+  z-index: 1000;
+  opacity: 1;
+}
+
+#sound_modal-container .sound_modal{
+  animation: soundblowUpModal 3.50s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#sound_modal-container span.sound_modal-background{
+  animation: soundblowUpModalBG 0.80s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+#sound_modal-container.out span.sound_modal-background{
+  animation: soundblowUpModalTwoBG 3.00s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#sound_modal-container.out .sound_modal{
+  animation: soundblowUpModalTwo 1.50s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+#sound_modal-container.out {
+  animation: soundblowUpModalTwoContainer 1.50s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes soundblowUpModal {/*モーダルが出てくるアニメ*/
+  0% {
+    /*opacity: 0;*/
+  }
+  100% {
+   transform: translateY(-10%) rotate(5deg);
+    opacity:1;
+  }
+}
+@keyframes soundblowUpModalBG {/*背景が出てくるアニメ*/
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@keyframes soundblowUpModalTwo {/*モーダルが隠れるアニメ*/
+  0% {
+    opacity: 1;
+    transform: translateY(-10%) rotate(5deg);
+  }
+  99.9%{
+    transform: scale(1);
+    transform: translateY(-100%) rotate(0deg);
+    opacity:1;
+  }
+  100% {
+    transform: scale(0);
+    opacity:0;
+  }
+}
+
+@keyframes soundblowUpModalTwoBG {/*背景が隠れるアニメ*/
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  99.9%{
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes soundblowUpModalTwoContainer {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  99.9%{
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+div#sound_modal-container .sound_modal {
+  width: 100vw;
+  height: 100%;
+  font-weight: 200px;
+  position: relative;
+  transform: translateY(-100%) rotate(5deg);
+  opacity: 1;
+}
+div#sound_modal-container span.sound_modal-background {
+  position:absolute;
+  top:0;
+  left:0;
+  background:  rgba(0,0,0,0.8);
+  width:100%;
+  height:100%;
+  opacity:0;
+}
+div#sound_modal-container div.sound_modal svg.sound_modal-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+    animation: purun 0.8s linear 0s 1;
+    animation-delay: 1s;
+}
+@keyframes purun {
+     0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+     15%  { transform: scale(0.9, 0.9) translate(3%, 0%); }
+     30%  { transform: scale(1.0, 0.9) translate(6%, 0%); }
+     50%  { transform: scale(0.9, 1.0) translate(-6%, 0%); }
+     70%  { transform: scale(1.0, 0.9) translate(3%, 0%); }
+     100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+   }
+
+/*--------------アイコン部分-----------------------*/
+div.soundbutton {
+  position: relative;
+  text-align: center;
+  top: 11%;
+  left: 15%;
+  width: 100%;
+}
+
+div.soundbutton p {
+  font-size: 80px;
+}
+div.soundbutton div.icon {
+    display: inline-block;
+    margin: 0 30px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #666060;
+    color: #fff;
+    font-size: 45px;
+    line-height: 125px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+div.soundbutton div.icon:hover {
+  background: #ccc;
+}
+div.soundbutton div.icon:hover > p.hint {
+  opacity: .8;
+}
+
+div.icon p.hint {
+  min-width: 100px;
+  height: 45px;
+  margin-top:-16%;
+  text-align: center;
+  font-size: 25px;
+  line-height: 45px;
+  opacity: 0;
+  transition: opacity .2s ease .2s;
+}

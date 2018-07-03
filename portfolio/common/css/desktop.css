@@ -1,0 +1,596 @@
+@charset "UTF-8";
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border-collapse: inherit;
+    top: 0;
+    line-height: 1;
+}
+a {
+  color: inherit;
+}
+
+/*-----body-------*/
+/*-----ページ遷移が滑らかに行くよう白色に遷移するようアニメーション-------*/
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color:#fff;
+    color:#fff;
+}
+body.desktop {
+    /*background-color: #b0f6fc;*/
+    animation: desktop 1.00s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+body.play_page {
+    /*background-color: #ffec84;*/
+    background-color: #fff;
+    animation: playpage 1.00s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+body.works_page {
+    /*background-color: #070777;*/
+    animation: workspage 2.00s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+body.desktop.fadeout {
+      animation: desktopfade 1.00s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+body.play_page.fadeout {
+      animation: playpagefade 1.00s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+body.works_page.fadeout {
+      animation: workspagefade 0.30s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+@keyframes desktop {
+    0% {
+    }
+    100% {
+    background-color: #b0f6fc;
+    }
+  }
+@keyframes playpage {
+    0% {
+    background-color:#fff;
+    }
+    100% {
+      background-color: #fff;
+    }
+  }
+@keyframes workspage {
+    0% {
+    background-color:#fff;
+    }
+    100% {
+    background-color: #070777;
+    }
+  }
+@keyframes desktopfade {
+    0% {
+    background-color: #b0f6fc;
+    }
+    100% {
+    background-color: #fff;
+    }
+  }
+@keyframes playpagefade {
+    0% {
+    background-color: #ffec84;
+    }
+    100% {
+    background-color: #fff;
+    }
+  }
+@keyframes workspagefade {
+    0% {
+    background-color: #070777;
+    }
+    100% {
+    background-color: #fff;
+    }
+  }
+/*-----△ページアニメーションおしまい△-------*/
+canvas{
+  position:fixed;
+  top:0; left:0; width:100%; height:100%;
+  z-index:-1;
+}
+.works_page canvas{
+  opacity:0.8;
+}
+/*▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+/*---------------------------common_item------------------------------*/
+/*----------profile icon----------*/
+.prf-container {
+  text-align:center;
+}
+.prf-container a {
+  display:inline-block;
+  color: RGB(150,150,150);
+  margin:10px 10px;
+  font-size:20px;
+  transition: color .3s ease-in-out;
+}
+.prf-container a:hover {
+  color: #fff;
+}
+/*▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼TOP▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+div.topmain{
+  position:absolute;
+  width:100vw;
+  height:100%;
+  top:0;
+  left:0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+div.topcontainer{
+  text-align:center;
+  width: 100%;
+  display:block;
+}
+/*----------------SVG------------------*/
+div.topcontainer svg{
+  height:100px;
+  width: 500px;
+}
+.random_anime {
+    fill: none;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    animation: DASH 4s ease-in 1s forwards;
+    -webkit-animation: DASH 4s ease-in 1s forwards;
+}
+@keyframes DASH {
+    0% {
+        stroke-dashoffset: 3000;
+        fill: rgba(255, 255, 255, 0);
+    }
+    50% {
+        stroke-dashoffset: 2000;
+        fill: rgba(255, 255, 255, 0.2);
+    }
+    70% {
+        stroke-dashoffset: 1000;
+        fill: rgba(255, 255, 255, 0.4);
+        stroke:#fff;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: rgba(255, 255, 255, 1);
+        stroke:#b0f6fc;
+        stroke-width:1.3;
+    }
+}
+/*----------------その他TOP------------------*/
+div.title-container{
+  position:relative;
+  width: 100%;
+  height:auto;
+  display:inline-block;
+}
+div.title-container h1{
+  font-size: 0px;
+}
+div.title-container h2{
+  margin:10px auto 0 auto;
+  font-size: 32px;
+  letter-spacing: 2px;
+  text-shadow:
+      #b0f6fc 1.3px 1.3px 0, #b0f6fc -1.3px -1.3px 0,/*右下、左上*/
+      #b0f6fc -1.3px 1.3px 0, #b0f6fc 1.3px -1.3px 0,/*右上、左下*/
+      #b0f6fc 0px 1.3px 0, #b0f6fc  0 -1.3px 0,/*右、左*/
+      #b0f6fc -1.3px 0 0, #b0f6fc 1.3px 0 0;/*上、下*/
+}
+div.title-container p{
+  margin:;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-shadow:
+      #b0f6fc 1px 1px 0, #b0f6fc -1px -1px 0,/*右下、左上*/
+      #b0f6fc -1px 1px 0, #b0f6fc 1px -1px 0,/*右上、左下*/
+      #b0f6fc 0px 1px 0, #b0f6fc  0-1px 0,/*右、左*/
+      #b0f6fc -1px 0 0, #b0f6fc 1px 0 0;/*上、下*/
+}
+
+/*---------タイトルのアニメーション-----------*/
+.title-container, #prf-container-top, .playbutton {
+  opacity: 0;
+}
+
+.title_anime{
+  animation: example 1.0s ease 0.8s 1 forwards;
+}
+@keyframes example {
+  100% {
+    opacity: 1;
+  }
+}
+
+/*----------play button----------*/
+div.playbutton{
+  width: 100%;
+  position:relative;
+  text-align: center;
+}
+div.playbutton a{
+  display:inline-block;
+  cursor: pointer;
+  margin-top: 10vh;
+  height: 50px;
+  width: 160px;
+  font-size: 35px;
+  letter-spacing: 5px;
+  line-height: 1.5;
+  border: 2px solid #fff;
+  border-radius: 18px;
+  transition: all 0.4s ease-in-out;
+  text-shadow:
+      #b0f6fc 1.3px 1.3px 0, #b0f6fc -1.3px -1.3px 0,/*右下、左上*/
+      #b0f6fc -1.3px 1.3px 0, #b0f6fc 1.3px -1.3px 0,/*右上、左下*/
+      #b0f6fc 0px 1.3px 0, #b0f6fc  0 -1.3px 0,/*右、左*/
+      #b0f6fc -1.3px 0 0, #b0f6fc 1.3px 0 0;/*上、下*/
+}
+div.playbutton a:hover{
+  background-color:#fff;
+  color:#b0f6fc;
+  text-shadow:none;/*上、下*/
+}
+div.playbutton span {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 0;
+  left: 0;
+  top:-2vh;
+  margin:auto;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  transform: rotate(-45deg);
+  animation: plybtn 1.5s infinite;
+  box-sizing: border-box;
+}
+@keyframes plybtn {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+
+/*▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+/*------------------------------------*/
+/*----------------PLAY---------------*/
+/*----------title-play-----------*/
+div.title-play-container{
+  position: fixed;
+  display: block;
+  top: 0%;
+  right: 3%;
+  text-align: center;
+}
+
+div.title-play-container h1 {
+    font-size: 120px;
+    letter-spacing: 5px;
+    margin:30px auto 0 auto;
+}
+div.title-play-container h2 {
+    margin-top: -15px;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+#prf-container-play {
+  position: fixed;
+  right:5%;
+  bottom:5%;
+  top:auto;
+}
+/*#soundonoff{
+ display: flex;
+  position:relative;
+  right:-80%;
+  justify-content: space-between;
+}
+.soundonoff{
+  cursor: pointer;
+  line-height: 30px;
+  margin:auto 20px auto 20px;
+  margin-top:200px;
+  color:#000;
+  font-size: 30px;
+  z-index:200000;
+  width:100px;
+  height:50px;
+}*/
+
+/*▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼*/
+/*----------------WORKS---------------*/
+#prf-container-works {
+  position: fixed;
+  right:5%;
+  bottom:5%;
+  top:auto;
+}
+
+header {
+    position: fixed;
+    display: block;
+    top: 0px;
+    z-index:50;
+   transition: .3s;
+   width: 100%;
+}
+header h1 {
+    font-size: 110px;
+    letter-spacing: 5px;
+    margin-top:3%;
+    margin-right:4%;
+    text-align:right;
+    transition: .3s;
+}
+
+.active {
+  height: 80px;
+}
+.active h1 {
+  font-size: 40px;
+  letter-spacing: 5px;
+}
+nav .worksworks{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+/*----------video-----------*/
+.caroussel{
+  position: realative;
+  transform: translateY(6%);
+  width: 100%;
+}
+/*親要素*/
+figure.snip1384 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px auto;
+  min-width: 300px;
+  max-width: 700px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 50px;
+  background-color: #000000;
+}
+
+figure.snip1384 h3{
+  font-family: 'Baloo', cursive;
+}
+/*親要素が囲む全部にアニメーションをきかせる*/
+figure.snip1384 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;/*ボックスの幅にpaddingやborderを含める*/
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+/*ホバー前の画像のデフォルト仕様*/
+figure.snip1384 video {
+  max-width: 100%;
+  vertical-align: top;
+  left: 0;
+  right: 0;
+}
+/*ホバーあとの文字キャプションのデフォルト仕様*/
+figure.snip1384:after,
+figure.snip1384 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/*ホバー前の黒背景のデフォルト仕様、デフォルトなのでopacity=0で非表示*/
+figure.snip1384:after {
+  content: '';
+  background-color: rgba(255, 255,255, 0.5);
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+/*ホバー前の文字キャプションのデフォルト使用*/
+figure.snip1384 figcaption {
+  z-index: 1;
+  padding: 40px;
+}
+/*ホバー前の文字とリンクのデフォルト仕様*/
+figure.snip1384 h3,
+figure.snip1384 .links {
+  width: 100%;
+  margin: 5px 0;
+  padding: 0;
+}
+/*ホバー前のh3文字のデフォルト仕様　opacity=0で非表示*/
+figure.snip1384 h3 {
+  line-height: 1.1em;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  margin-top:5%;
+}
+/*ホバー前のp文字のデフォルト仕様　opacity=0で非表示*/
+figure.snip1384 p {
+  font-size: 0.6em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  opacity: 0;
+  margin-top: 8%;
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
+}
+/*ホバー前のアイコンのデフォルト仕様　opacity=0で非表示*/
+figure.snip1384 i {
+  position: absolute;
+  top:60%;
+  right: 7%;
+  padding: 20px 25px;
+  font-size: 80px;
+  opacity: 0;
+}
+/*ホバー前のaタグのデフォルト仕様*/
+figure.snip1384 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+/*ホバーあとの画像の仕様*/
+figure.snip1384:hover video {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+}
+/*ホバーあとの親要素の仕様*/
+figure.snip1384:hover:after {
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+/*ホバーあとのすべてのopacityを1にして表示*/
+figure.snip1384:hover h3,
+figure.snip1384:hover p,
+figure.snip1384:hover i {
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+/*----------video-----------*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800;);
+.snip1516 {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 5% auto;
+  min-width: 300px;
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  background-color: #fff;
+  color: #ffffff;
+}
+.snip1516 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.45s ease;
+  transition: all 0.45s ease;
+}
+.snip1516 video {
+  vertical-align: top;
+  left: 0;
+  right: 0;
+  opacity:0.7;
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+.snip1516 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  line-height: 1em;
+  -webkit-transform: translateY(-75%) rotate(360deg);
+  transform: translateY(-75%) rotate(360deg);
+}
+.snip1516 figcaption:before {
+  content: '';
+  background-color: #ccc;
+  position: absolute;
+  height: 240px;
+  width: 240px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.snip1516 h3 {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.snip1516 h3 span {
+  display: block;
+  font-weight: 800;
+}
+.snip1516 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.snip1516:hover > video,
+.snip1516.hover > video {
+  opacity: 0.3;
+}
+.snip1516:hover figcaption,
+.snip1516.hover figcaption {
+  -webkit-transform: translate(0px) rotate(0deg);
+  transform: translate(0px) rotate(0deg);
+  opacity: 1;
+}
+/*----------videoをスクロールしてふわっと表示-----------*/
+.fuwat{
+  transition: opacity 1.5s ease-out;
+  animation-fill-mode:both;
+  animation-duration:2.0s;
+  animation-name: fuwatAnimeAnime;
+}
+
+.fuwatAnime {
+ animation-fill-mode:both;
+ animation-duration:1.0s;
+ animation-name: fuwatAnime;
+ visibility: visible !important;
+}
+@keyframes fuwatAnime {
+ 0% { opacity: 0;  transform: translateY(-20px); }
+ 100% { opacity: 1;  transform: translateY(0); }
+}
+
+@keyframes fuwatAnimeAnime {
+ 0% { opacity: 1;}
+ 100% { opacity: 0;}
+}
